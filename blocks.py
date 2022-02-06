@@ -135,9 +135,9 @@ def game_opening():
 
 
 game_opening()
-game_sound = pygame.mixer.music.load('EarlyRiser.mp3')
+# game_sound = pygame.mixer.music.load('EarlyRiser.mp3')
 # -1 is for replay sound file
-pygame.mixer.music.play(-1)
+# pygame.mixer.music.play(-1)
 
 while not game_over:
     for event in pygame.event.get():
@@ -152,12 +152,9 @@ while not game_over:
             if event.key == K_SPACE:
                 stop = True
                 stop_function(stop)
-    # if collision(p_pos, e_pos):
-    #     game_over = True
-    #     break
     if check_collision(enemy_l, p_pos):
-        game_over_sound = pygame.mixer.music.load('Daybreak.mp3')
-        pygame.mixer.music.play()
+        # game_over_sound = pygame.mixer.music.load('Daybreak.mp3')
+        # pygame.mixer.music.play()
         t_s2 = font2.render('Game Over', True, (0, 255, 255))
         win.blit(t_s2, (250, 270))
         t_s = font.render(f'Your score is: {score}', True, (0, 255, 0))
@@ -166,11 +163,6 @@ while not game_over:
         time.sleep(3)
         game_over = True
         break
-    # if e_pos[1] <= 600:
-    #     e_pos[1] += speed_e
-    # else:
-    #     e_pos[1] = 0
-    #     e_pos[0] = random.randint(0, 740)
     win.fill(black)
     enemies(enemy_l)
     draw_enemies(enemy_l)
@@ -179,6 +171,5 @@ while not game_over:
     win.blit(t_s, (20, 20))
     speed_e = level(score)
     pygame.draw.rect(win, blue, (p_pos[0], p_pos[1], 60, 60))
-    # pygame.draw.rect(win, red, (e_pos[0], e_pos[1], 60, 60))
     clock.tick(fps)
     pygame.display.update()
